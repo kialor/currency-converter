@@ -75,7 +75,7 @@ amountValue.addEventListener('input', () => {
 historicalButton.addEventListener("click", () => {
   const baseCurrency = document.querySelector("#base-currency").value;
   const targetCurrency = document.querySelector("#target-currency").value;
-  const date = "2023-01-01";
+  const date = "2023-05-05";
 
   fetch(
     `https://api.apilayer.com/exchangerates_data/${date}?symbols=${targetCurrency}&base=${baseCurrency}`,
@@ -100,7 +100,7 @@ historicalButton.addEventListener("click", () => {
 
 saveFavButton.addEventListener("click", () => {
   const selectedPair = `${baseCurrency.value}/${targetCurrency.value}`;
-  const savedPairs = JSON.parse(localStorage.getItem("savedPairs")) || [];
+  const savedPairs = JSON.parse(localStorage.getItem("savedPairs"));
   savedPairs.push(selectedPair);
   localStorage.setItem("savedPairs", JSON.stringify(savedPairs));
 
